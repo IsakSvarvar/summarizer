@@ -3,3 +3,8 @@
 ###get
 
 GET {{baseURL}}/summarizer
+Content-Type: application/json
+
+{
+    "messages": [{"role": "system", "content": "you are a helpful assistant"}, {"role": "user", "content": "Hello!"}]
+}

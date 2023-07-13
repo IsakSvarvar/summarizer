@@ -11,11 +11,18 @@ const openai = new OpenAIApi(configuration);
 //GET
 router.get('/', async (req,res) => {
     try {
-        const response = await openai.retrieveModel("text-davinci-003");
+        const response = await openai.createChatCompletion({
+            model: "gpt-3.5-turbo",
+            messages: req.body.messages,
+        });
         //const response = "poop"
+        /*
+        console.log(response);
+        console.log("***short version: " + response.data.choices[0].message);
+        */
         res.status(200).json({
             success: true,
-            msg: response,
+            response: response.data.choices[0].message,
         });
     } catch (error) {
         res.status(500).send({msg: error.message});
