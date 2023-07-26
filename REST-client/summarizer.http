@@ -1,10 +1,21 @@
 @baseURL = http://localhost:3000
 
-###get
+###post
 
-GET {{baseURL}}/summarizer
+POST {{baseURL}}/summarizer
 Content-Type: application/json
 
 {
-    "messages": [{"role": "system", "content": "you are a helpful assistant"}, {"role": "user", "content": "Hello!"}]
+    "prompt": "2",
+    "article": "Under veckoslutet blir det festivalstämning i Vasa med både nationella och internationella stjärnor på scenen. På fredag och lördag är det nämligen dags för den tredje upplagan av Bigday Summer Festival. Bigday Summer Festival ordnades för första gången år 2021 under coronapandemin. Festivalen var då en dag lång och man fokuserade främst på elektroniska artister. Följande år, alltså ifjol, utökades festivalen till ett tvådagarsevenemang. Då togs även liveartister från Sverige och Norge in. Precis som förra året ordnas årets festival i parken vid Vasa universitetet. Nytt för i år är att det nu finns två scener istället för en."
+}
+
+###post to dev
+
+POST {{baseURL}}/summarizer/dev
+Content-Type: application/json
+
+{
+    "prompt":["sumSwe", "simplify"],
+    "article": "Under veckoslutet blir det festivalstämning i Vasa med både nationella och internationella stjärnor på scenen. På fredag och lördag är det nämligen dags för den tredje upplagan av Bigday Summer Festival. Bigday Summer Festival ordnades för första gången år 2021 under coronapandemin. Festivalen var då en dag lång och man fokuserade främst på elektroniska artister. Följande år, alltså ifjol, utökades festivalen till ett tvådagarsevenemang. Då togs även liveartister från Sverige och Norge in. Precis som förra året ordnas årets festival i parken vid Vasa universitetet. Nytt för i år är att det nu finns två scener istället för en."
 }
